@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
     "start": "nodemon index.js",
-    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "pretest": "cross-env NODE_ENV=test npm run db:reset",
+    "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create"
   },
   "keywords": [],
   "author": "",
