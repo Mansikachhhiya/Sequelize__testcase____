@@ -23,8 +23,8 @@ app.use(logger('dev'))
 //routers
 
 // const router = require("../sequelize_demo2/routes/productRouter")
-const router = require("./routes/index");
-app.use("/api",router)
+const routers = require("./routes");
+app.use("/api",routers)
 
 //testing api
 /**
@@ -35,9 +35,9 @@ app.use("/api",router)
  req represents the request sent from the browser to the server.
  res represents the response that the server sends back.
  */
-app.get('/',(req,res)=>{
-    res.status(200).json({message:"Hello from API"})
-})
+// app.get('/',(req,res)=>{
+//     res.status(200).json({message:"Hello from API"})
+// })
 //port
 const PORT = process.env.PORT || 8000
 console.log(PORT);
@@ -46,7 +46,4 @@ console.log(PORT);
 app.listen(PORT,()=>{
     console.log(`server is running on port ${PORT}`)
 })
-module.exports={
-    app
-
-}
+module.exports=app
